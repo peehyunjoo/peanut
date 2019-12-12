@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <meta name="autocomplete" content="off">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/base.js' %}"></script>
+
+</head>
+<body>
+    <div id="wrapper">
+   <div class="overlay"></div>
+
+        <!-- Sidebar -->
+    <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+     <ul class="nav sidebar-nav">
+       <div class="sidebar-header">
+       <div class="sidebar-brand">
+         <a href="#">Brand</a></div></div>
+       <li><a href="#home">Home</a></li>
+       <li><a href="#about">About</a></li>
+       <li><a href="#events">Events</a></li>
+       <li><a href="#team">Team</a></li>
+       <li class="dropdown">
+       <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Works <span class="caret"></span></a>
+     <ul class="dropdown-menu animated fadeInLeft" role="menu">
+      <div class="dropdown-header">Dropdown heading</div>
+      <li><a href="#pictures">Pictures</a></li>
+      <li><a href="#videos">Videeos</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#art">Art</a></li>
+      <li><a href="#awards">Awards</a></li>
+      </ul>
+      </li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#followme">Follow me</a></li>
+      </ul>
+  </nav>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                            <div>
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</body>
+</html>
