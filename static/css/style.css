@@ -96,7 +96,7 @@ html { height: 100%;}
 
         }
         .sidebar-nav li:hover{
-          background: skyblue !important;
+          background: #F78181;
           border-radius: 10px;
           margin-left: 10px;
           margin-right: 10px;
@@ -138,8 +138,8 @@ html { height: 100%;}
         .sidebar-brand {
             height: 65px;
             position: relative;
-            background:#212531;
-            background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+            background:#B00020;
+            /*background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);*/
            padding-top: 1em;
         }
         .sidebar-brand a {
@@ -172,7 +172,6 @@ html { height: 100%;}
         /*Fontawesome icons*/
         .nav.sidebar-nav li a::before {
             font-family: fontawesome;
-            content: "\f12e";
             vertical-align: baseline;
             display: inline-block;
             padding-right: 5px;
