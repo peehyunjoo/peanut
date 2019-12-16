@@ -44,3 +44,6 @@ def index(request):
         #return HttpResponse(data)
     else:
         return render(request, 'peanutapp/main.html')
+
+def career(request):
+    return render(request, 'peanutapp/career.html')

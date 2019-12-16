@@ -22,6 +22,9 @@
 
 </head>
 <body>
+<nav class="navbar navbar-light">
+    <b>CAREER</b>
+</nav>
     <div id="wrapper">
    <div class="overlay"></div>
 
@@ -30,9 +33,9 @@
      <ul class="nav sidebar-nav">
        <div class="sidebar-header">
        <div class="sidebar-brand">
-         <a href="#">PIZZU</a></div></div>
-       <li><a href="/Carrer">Carrer</a></li>
-       <li><a href="/Note">Note</a></li>
+         <a href="#">Peanut</a></div></div>
+       <li><a href="/career">Career</a></li>
+       <li><a href="/note">Note</a></li>
 
       </ul>
   </nav>
@@ -46,14 +49,8 @@
 				<span class="hamb-bottom"></span>
             </button>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-6 offset-md-3">
-                            <div>
-                                {% block content %}
-                                {% endblock %}
-                            </div>
-                    </div>
-                </div>
+                    {% block content %}
+                    {% endblock %}
             </div>
         </div>
         <!-- /#page-content-wrapper -->

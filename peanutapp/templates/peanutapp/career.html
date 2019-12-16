@@ -1,0 +1,663 @@
+{% extends "base.html" %}
+{% block content %}
+<script>
+    $(document).ready(function(){
+        $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
+    });
+</script>
+<form style="width:100%;">
+    <div class="carrer_0">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name0">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status0" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank0" class="form-control">
+            <option selected name="rank">선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate0"> ~ <input type="date" class="form-control" name="c_edate0">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status0" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason0">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    <div class="carrer_1" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name1">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status1" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank1" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate1"> ~ <input type="date" class="form-control" name="c_edate1">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status1" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason1">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+    &nbsp;
+    <div class="carrer_2" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name2">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status2" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank2" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate2"> ~ <input type="date" class="form-control" name="c_edate2">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status2" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason2">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_3" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name3">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status3" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank3" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate3"> ~ <input type="date" class="form-control" name="c_edate3">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status3" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason3">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_4" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name4">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status4" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank4" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate4"> ~ <input type="date" class="form-control" name="c_edate4">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status4" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason4">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_5" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name5">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status5" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank5" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate5"> ~ <input type="date" class="form-control" name="c_edate5">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status5" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason5">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_6" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name6">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status6" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank6" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate6"> ~ <input type="date" class="form-control" name="c_edate6">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status6" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason6">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_7" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name7">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status7" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank7" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate7"> ~ <input type="date" class="form-control" name="c_edate7">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status7" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason7">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_8" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name8">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status8" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank8" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate8"> ~ <input type="date" class="form-control" name="c_edate8">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status8" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason8">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_9" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" name="c_name9">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status9" class="form-control">
+            <option selected>선택</option>
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank9" class="form-control">
+            <option selected>선택</option>
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" name="c_sdate9"> ~ <input type="date" class="form-control" name="c_edate9">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status9" class="form-control">
+            <option selected>선택</option>
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason9">
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    <i class="fas fa-plus-circle carrer_add"></i>
+
+
+</form>
+{% endblock %}
