@@ -5,7 +5,9 @@
         $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
     });
 </script>
-<form style="width:100%;">
+<form style="width:100%;" method="POST">
+    <input type="hidden" name="id" value="pizzu"/>
+    {% csrf_token %}
     <div class="carrer_0">
     <div class="row">
         <div class="col">
@@ -19,7 +21,6 @@
         </div>
         <div class="col">
           <select name="em_status0" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -34,7 +35,6 @@
         </div>
         <div class="col">
           <select name="rank0" class="form-control">
-            <option selected name="rank">선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -55,7 +55,6 @@
         </div>
         <div class="col">
           <select name="c_status0" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -65,6 +64,15 @@
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason0">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content0"></textarea>
         </div>
     </div>
     <br>
@@ -84,7 +92,6 @@
         </div>
         <div class="col">
           <select name="em_status1" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -99,7 +106,6 @@
         </div>
         <div class="col">
           <select name="rank1" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -120,7 +126,6 @@
         </div>
         <div class="col">
           <select name="c_status1" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -132,6 +137,16 @@
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason1">
         </div>
     </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content1"></textarea>
+        </div>
+    </div>
+
     <br>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     </div>
@@ -149,7 +164,6 @@
         </div>
         <div class="col">
           <select name="em_status2" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -164,7 +178,6 @@
         </div>
         <div class="col">
           <select name="rank2" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -185,7 +198,6 @@
         </div>
         <div class="col">
           <select name="c_status2" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -195,6 +207,15 @@
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason2">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content2"></textarea>
         </div>
     </div>
     <br>
@@ -214,7 +235,6 @@
         </div>
         <div class="col">
           <select name="em_status3" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -229,7 +249,6 @@
         </div>
         <div class="col">
           <select name="rank3" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -250,7 +269,6 @@
         </div>
         <div class="col">
           <select name="c_status3" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -260,6 +278,15 @@
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason3">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content3"></textarea>
         </div>
     </div>
     <br>
@@ -279,7 +306,6 @@
         </div>
         <div class="col">
           <select name="em_status4" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -294,7 +320,6 @@
         </div>
         <div class="col">
           <select name="rank4" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -315,7 +340,6 @@
         </div>
         <div class="col">
           <select name="c_status4" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -325,6 +349,15 @@
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason4">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content4"></textarea>
         </div>
     </div>
     <br>
@@ -344,7 +377,6 @@
         </div>
         <div class="col">
           <select name="em_status5" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -359,7 +391,6 @@
         </div>
         <div class="col">
           <select name="rank5" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -380,7 +411,6 @@
         </div>
         <div class="col">
           <select name="c_status5" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -390,6 +420,15 @@
         </div>
         <div class="col">
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason5">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content5"></textarea>
         </div>
     </div>
     <br>
@@ -409,7 +448,6 @@
         </div>
         <div class="col">
           <select name="em_status6" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -424,7 +462,6 @@
         </div>
         <div class="col">
           <select name="rank6" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -445,7 +482,6 @@
         </div>
         <div class="col">
           <select name="c_status6" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -458,6 +494,15 @@
         </div>
     </div>
     <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content6"></textarea>
+        </div>
+    </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     </div>
      &nbsp;
@@ -474,7 +519,6 @@
         </div>
         <div class="col">
           <select name="em_status7" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -489,7 +533,6 @@
         </div>
         <div class="col">
           <select name="rank7" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -510,7 +553,6 @@
         </div>
         <div class="col">
           <select name="c_status7" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -523,6 +565,15 @@
         </div>
     </div>
     <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content7"></textarea>
+        </div>
+    </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     </div>
      &nbsp;
@@ -539,7 +590,6 @@
         </div>
         <div class="col">
           <select name="em_status8" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -554,7 +604,6 @@
         </div>
         <div class="col">
           <select name="rank8" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -575,7 +624,6 @@
         </div>
         <div class="col">
           <select name="c_status8" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -588,6 +636,15 @@
         </div>
     </div>
     <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content8"></textarea>
+        </div>
+    </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     </div>
      &nbsp;
@@ -604,7 +661,6 @@
         </div>
         <div class="col">
           <select name="em_status9" class="form-control">
-            <option selected>선택</option>
             <option value="1">정규직</option>
             <option value="2">계약직</option>
             <option value="3">파견직</option>
@@ -619,7 +675,6 @@
         </div>
         <div class="col">
           <select name="rank9" class="form-control">
-            <option selected>선택</option>
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -640,7 +695,6 @@
         </div>
         <div class="col">
           <select name="c_status9" class="form-control">
-            <option selected>선택</option>
             <option value="1">퇴사</option>
             <option value="2">재직</option>
           </select>
@@ -652,12 +706,25 @@
           <input type="text" class="form-control" placeholder="사직사유" name="c_quit_reason9">
         </div>
     </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control"name="content9"></textarea>
+        </div>
+    </div>
     <br>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     </div>
 
     <i class="fas fa-plus-circle carrer_add"></i>
-
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:-19px;">등록</button>
+        </div>
+    </div>
 
 </form>
 {% endblock %}
