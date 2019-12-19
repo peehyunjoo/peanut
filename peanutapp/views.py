@@ -59,9 +59,15 @@ class IndexView(View):
                 form = self.form_class(data)
                 oauth_save = form.save(commit=False)       #oauth란 이름으로 모델을 가져왔으므로 변수명을  oauth로 똑같이 쓸수 없음.
                 oauth_save.save()
-                return render(request, self.template_name, data)
+                request.session['id'] = data['id']
+                request.session['nickname'] = data['nickname']
+                #return render(request, self.template_name, data)
+                return HttpResponseRedirect("/")
             else:
-                return render(request, self.template_name, data)
+                request.session['id'] = data['id']
+                request.session['nickname'] = data['nickname']
+                #return render(request, self.template_name, data)
+                return HttpResponseRedirect("/")
 
             #return HttpResponse(data)
         else:
@@ -280,5 +286,12 @@ class CareerView(View):
             return render(request, self.template_name)
         return render(request, self.template_name)
 
+class MypageView(View):
+    #form_class = mypageForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/mypage.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
 
 

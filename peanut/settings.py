@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+SESSION_COOKIE_AGE = 7200
 
 ROOT_URLCONF = 'peanut.urls'
 
@@ -138,12 +139,29 @@ STATICFILES_DIRS = (
 LOGGING = {
     'version':1,
     'disable_existing_loggers':False,
+    'formatters' :{
+        'format1': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'format2': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers':{
         'file':{
-            'level':'DEBUG',
+            #'level':'DEBUG',
+            'level':'ERROR',
             'class':'logging.FileHandler',
             'filename':'debug.log',
+            'formatter':'format1'      #위의 formatters에서 만들어놓은 원하는 로그 패턴 설정
         },
+        # 콘솔(터미널)에 출력
+        #'console': {
+        #    'level': 'DEBUG',
+        #    'class': 'logging.StreamHandler',
+        #    'formatter': 'format2',
+        #}
     },
     'loggers':{
         'django':{
