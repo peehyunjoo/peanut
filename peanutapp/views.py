@@ -188,7 +188,16 @@ class CareerView(View):
     success_url ='/'
 
     def get(self, request):
-        return render(request, self.template_name)
+        if(request.session.get('id')):
+            career_list = career.objects.filter(id = request.session.get('id')).values()
+            print(career_list)
+
+            data = {
+                'list' : career_list
+            }
+            return render(request, 'peanutapp/career_list.html', data)
+        else:
+            return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
         dict = request.POST.dict()

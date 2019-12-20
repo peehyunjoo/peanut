@@ -4,10 +4,15 @@
     $(document).ready(function(){
         $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
         $("b").text("Career");
+        $("i").click(function(){
+            $("body, html").animate({
+                scrollTop: $(document).height()
+            }, 800);
+        });
     });
 </script>
 <form style="width:100%;" method="POST">
-    <input type="hidden" name="id" value="pizzu"/>
+    <input type="hidden" name="id" value="{{ request.session.id }}"/>
     {% csrf_token %}
     <div class="carrer_0">
     <div class="row">

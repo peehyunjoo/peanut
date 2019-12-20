@@ -1,0 +1,443 @@
+{% extends "base.html" %}
+{% block content %}
+    <script>
+    $(document).ready(function(){
+        $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
+        $("b").text("Career List");
+    });
+</script>
+    {% for data in list %}
+
+    {% if data.c_name0 == None %}
+        <div class="list0" style="display:none;">
+    {% else %}
+        <div class="list0">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name0 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status0 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank0 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate0|default_if_none:'' }} ~ {{ data.c_edate0|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status0 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason0|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content0|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name1 == None %}
+        <div class="list1" style="display:none;">
+    {% else %}
+        <div class="list1">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name1 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status1 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank1 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate1|default_if_none:'' }} ~ {{ data.c_edate1|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status1 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason1|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content1|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name2 == None %}
+        <div class="list2" style="display:none;">
+    {% else %}
+        <div class="list2">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name2 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status2 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank2 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate2|default_if_none:'' }} ~ {{ data.c_edate2|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status2 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason2|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content2|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name3 == None %}
+        <div class="list3" style="display:none;">
+    {% else %}
+        <div class="list3">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name3 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status3 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank3 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate3|default_if_none:'' }} ~ {{ data.c_edate3|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status3 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason3|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content3|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+     {% if data.c_name4 == None %}
+        <div class="list4" style="display:none;">
+    {% else %}
+        <div class="list4">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name4 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status4 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank4 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate4|default_if_none:'' }} ~ {{ data.c_edate4|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status4 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason4|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content4|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name5 == None %}
+        <div class="list5" style="display:none;">
+    {% else %}
+        <div class="list5">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name5 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status5 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank5 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate5|default_if_none:'' }} ~ {{ data.c_edate5|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status5 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason5|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content5|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name6 == None %}
+        <div class="list6" style="display:none;">
+    {% else %}
+        <div class="list6">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name6 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status6 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank6 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate6|default_if_none:'' }} ~ {{ data.c_edate6|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status6 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason6|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content6|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name7 == None %}
+        <div class="list7" style="display:none;">
+    {% else %}
+        <div class="list7">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name7 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status7 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank7 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate7|default_if_none:'' }} ~ {{ data.c_edate7|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status7 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason7|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content7|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name8 == None %}
+        <div class="list8" style="display:none;">
+    {% else %}
+        <div class="list8">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name8 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status8 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank8 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate8|default_if_none:'' }} ~ {{ data.c_edate8|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status8 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason8|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content8|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name9 == None %}
+        <div class="list9" style="display:none;">
+    {% else %}
+        <div class="list9">
+    {% endif %}
+        <div class="row career_list">
+            <div class="col">회사명</div>
+            <div class="col">{{ data.c_name9 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">정규직여부</div>
+            <div class="col">{{ data.em_status7 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">직급</div>
+            <div class="col">{{ data.rank9 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">근무기간</div>
+            <div class="col">{{ data.c_sdate9|default_if_none:'' }} ~ {{ data.c_edate9|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">재직상태</div>
+            <div class="col">{{ data.c_status9 }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">퇴직사유</div>
+            <div class="col">{{ data.c_quit_reason9|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <div class="row career_list">
+            <div class="col">업무내용</div>
+            <div class="col">{{ data.content9|default_if_none:'' }}</div>
+        </div>
+        <br>
+        <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% endfor %}
+
+{% endblock %}
