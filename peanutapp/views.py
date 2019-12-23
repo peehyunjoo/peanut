@@ -184,20 +184,23 @@ def career(request):
 class CareerView(View):
     form_class = careerForm
     initial = {'key': 'value'}
-    template_name = 'peanutapp/career.html'
+    template_name1 = 'peanutapp/career.html'
+    template_name2 = 'peanutapp/career_list.html'
     success_url ='/'
 
     def get(self, request):
         if(request.session.get('id')):
             career_list = career.objects.filter(id = request.session.get('id')).values()
             print(career_list)
-
-            data = {
-                'list' : career_list
-            }
-            return render(request, 'peanutapp/career_list.html', data)
+            if(career_list):
+                data = {
+                    'list' : career_list
+                }
+                return render(request, 'peanutapp/career_list.html', data)
+            else:
+                return render(request, self.template_name1)
         else:
-            return render(request, self.template_name)
+            return HttpResponseRedirect("/")
 
     def post(self, request, *args, **kwargs):
         dict = request.POST.dict()
@@ -292,8 +295,8 @@ class CareerView(View):
         if form.is_valid():
             career = form.save(commit=False)
             career.save()
-            return render(request, self.template_name)
-        return render(request, self.template_name)
+            return HttpResponseRedirect("/career")
+        return render(request, self.template_name1)
 
 class MypageView(View):
     #form_class = mypageForm
@@ -303,4 +306,31 @@ class MypageView(View):
     def get(self, request):
         return render(request, self.template_name)
 
+class CareerUpdateView(View):
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/career_update.html'
+    template_name2 = 'peanutapp/career_list.html'
+    def get(self, request):
+        career_list = career.objects.filter(id=request.session.get('id')).values()
+
+        data = {
+            'list' : career_list
+        }
+        return render(request, self.template_name, data)
+
+    def post(self, request, *args, **kwargs):
+        career_list = career.objects.get(pk=request.session.get('id'))
+        dict = {
+            'c_name0' : request.POST.get('c_name0'),
+            'em_status0' : request.POST.get('em_status0'),
+            'rank0' : request.POST.get('rank0'),
+            'c_sdate0' : request.POST.get('c_sdate0'),
+            'c_edate0' : request.POST.get('c_edate0'),
+            'c_status0' : request.POST.get('c_status0'),
+            'c_quit_reason0' : request.POST.get('c_quit_reason0'),
+            'content0' : request.POST.get('content0'),
+        }
+
+        career.objects.filter(id=request.session.get('id')).update(**dict)
+        return HttpResponseRedirect("/career")
 

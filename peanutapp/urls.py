@@ -16,4 +16,5 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name="index"),
     path('career/', views.CareerView.as_view(), name="career"),
     path('mypage/', views.MypageView.as_view(), name="mypage"),
+    path('careerUpdate/', views.CareerUpdateView.as_view(), name="careerUpdate"),
 ]

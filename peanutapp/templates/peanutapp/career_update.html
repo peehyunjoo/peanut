@@ -1,0 +1,738 @@
+{% extends "base.html" %}
+{% block content %}
+    <script>
+    $(document).ready(function(){
+        $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
+        $("b").text("Career Update");
+    });
+</script>
+
+<form style="width:100%;" method="POST" action="/careerUpdate/">
+    <input type="hidden" name="id" value="{{ request.session.id }}"/>
+    {% csrf_token %}
+    {% for data in list %}
+
+    <div class="carrer_0">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{data.c_name0}}" name="c_name0">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status0" class="form-control">
+            <option value="1" {% if data.em_status0 ==  1 %} selected="selected" {% endif %} >정규직</option>
+            <option value="2" {% if data.em_status0 ==  2 %} selected="selected" {% endif %} >계약직</option>
+            <option value="3" {% if data.em_status0 ==  3 %} selected="selected" {% endif %} >파견직</option>
+            <option value="4" {% if data.em_status0 ==  4 %} selected="selected" {% endif %} >인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank0" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate0 }}" name="c_sdate0"> ~ <input type="date" class="form-control" value="{{ data.c_edate0 }}" name="c_edate0">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status0" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason0 | default_if_none:''}}" name="c_quit_reason0">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content0 }}" name="content0"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    {% if data.c_name1 == None %}
+        <div class="list1" style="display:none;">
+    {% else %}
+        <div class="list1">
+    {% endif %}
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="회사명" value="{{ data.c_name1 | default_if_none:'' }}" name="c_name1">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status1" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank1" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate1 }}" name="c_sdate1"> ~ <input type="date" class="form-control" value="{{ data.c_edate1 }}" name="c_edate1">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status1" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_season1 | default_if_none:'' }}" name="c_quit_reason1">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content1 | default_if_none:'' }}" name="content1"></textarea>
+        </div>
+    </div>
+
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+    &nbsp;
+    <div class="carrer_2" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name2 | default_if_none:'' }}" name="c_name2">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status2" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank2" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate2 }}" name="c_sdate2"> ~ <input type="date" class="form-control" value="{{ data.c_edate2 }}" name="c_edate2">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status2" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason2 | default_if_none:'' }}" name="c_quit_reason2">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content2 | default_if_none:''}}" name="content2"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_3" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name3 | default_if_none:'' }}" name="c_name3">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status3" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank3" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate3 }}" name="c_sdate3"> ~ <input type="date" class="form-control" value="{{ data.c_edate3 }}" name="c_edate3">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status3" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason3 | default_if_none:''}}" name="c_quit_reason3">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content3 | default_if_none:''}}" name="content3"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_4" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name4 | default_if_none:''}}" name="c_name4">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status4" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank4" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate4 }}" name="c_sdate4"> ~ <input type="date" class="form-control" value="{{ data.c_edate4 }}" name="c_edate4">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status4" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason4 | default_if_none:''}}" name="c_quit_reason4">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content4 | default_if_none:''}}" name="content4"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_5" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name5 | default_if_none:''}}" name="c_name5">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status5" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank5" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate5 }}" name="c_sdate5"> ~ <input type="date" class="form-control" value="{{ data.c_edate5 }}" name="c_edate5">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status5" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason5 | default_if_none:''}}" name="c_quit_reason5">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content5 | default_if_none:''}}" name="content5"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_6" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name6 | default_if_none:''}}" name="c_name6">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status6" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank6" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate6 }}" name="c_sdate6"> ~ <input type="date" class="form-control" value="{{ data.c_edate6 }}" name="c_edate6">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status6" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason6 | default_if_none:''}}" name="c_quit_reason6">
+        </div>
+    </div>
+    <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content6 | default_if_none:''}}" name="content6"></textarea>
+        </div>
+    </div>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_7" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name7 | default_if_none:''}}" name="c_name7">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status7" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank7" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate7 }}" name="c_sdate7"> ~ <input type="date" class="form-control" value="{{ data.c_edate7 }}" name="c_edate7">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status7" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason7 | default_if_none:''}}" name="c_quit_reason7">
+        </div>
+    </div>
+    <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content7 | default_if_none:''}}" name="content7"></textarea>
+        </div>
+    </div>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_8" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control"  value="{{ data.c_name8 | default_if_none:''}}" name="c_name8">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status8" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank8" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate8 }}" name="c_sdate8"> ~ <input type="date" class="form-control" value="{{ data.c_edate8 }}" name="c_edate8">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status8" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason8 | default_if_none:''}}" name="c_quit_reason8">
+        </div>
+    </div>
+    <br>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content8 | default_if_none:''}}" name="content8"></textarea>
+        </div>
+    </div>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+     &nbsp;
+    <div class="carrer_9" style="display:none;">
+    <div class="row">
+        <div class="col">
+          회사명
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_name9 | default_if_none:''}}" name="c_name9">
+        </div>
+        <div class="col">
+          정규직 여부
+        </div>
+        <div class="col">
+          <select name="em_status9" class="form-control">
+            <option value="1">정규직</option>
+            <option value="2">계약직</option>
+            <option value="3">파견직</option>
+            <option value="4">인턴</option>
+          </select>
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          직위
+        </div>
+        <div class="col">
+          <select name="rank9" class="form-control">
+            <option value="1">사원</option>
+            <option value="2">대리</option>
+            <option value="3">과장</option>
+            <option value="4">팀장</option>
+          </select>
+        </div>
+        <div class="col">
+          근무기간
+        </div>
+        <div class="col">
+          <input type="date" class="form-control" value="{{ data.c_sdate9 }}" name="c_sdate9"> ~ <input type="date" class="form-control" value="{{ data.c_edate9 }}" name="c_edate9">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          재직상태
+        </div>
+        <div class="col">
+          <select name="c_status9" class="form-control">
+            <option value="1">퇴사</option>
+            <option value="2">재직</option>
+          </select>
+        </div>
+        <div class="col">
+          사직사유
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason9|default_if_none:''}}" name="c_quit_reason9">
+        </div>
+    </div>
+    &nbsp;
+    <div class="row">
+        <div class="col">
+          업무내용
+        </div>
+        <div class="col">
+            <textarea rows="5" class="form-control" value="{{ data.content9|default_if_none:''}}" name="content9"></textarea>
+        </div>
+    </div>
+    <br>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    </div>
+
+    <i class="fas fa-plus-circle carrer_add"></i>
+    <div class="row">
+        <div class="col">
+            <button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:-19px;">수정</button>
+        </div>
+    </div>
+    {% endfor %}
+</form>
+{% endblock %}
