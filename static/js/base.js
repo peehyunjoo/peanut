@@ -26,11 +26,10 @@ $(document).ready(function () {
     $('#wrapper').toggleClass('toggled');
   });
 
-  $('.carrer_add').click(function(){
+  $('.career_add').click(function(){
     for(var i = 0 ; i < 10; i++) {
-      if ($(".carrer_" + i).css("display") == "none") {
-        //$(".carrer_"+i).css("display","block");
-        $(".carrer_" + i).show("slow");
+      if ($(".career_" + i).css("display") == "none") {
+        $(".career_" + i).show("slow");
         break;
       }
     }

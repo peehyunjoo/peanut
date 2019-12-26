@@ -20,22 +20,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status0 }}</div>
+            {% if data.em_status0 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status0 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status0 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status0 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank0 }}</div>
+            {% if data.rank0 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank0 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank0 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank0 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate0|default_if_none:'' }} ~ {{ data.c_edate0|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate0|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate0|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status0 }}</div>
+            {% if data.c_status0 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status0 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -63,22 +83,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status1 }}</div>
+            {% if data.em_status1 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status1 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status1 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status1 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank1 }}</div>
+            {% if data.rank1 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank1 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank1 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank1 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate1|default_if_none:'' }} ~ {{ data.c_edate1|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate1|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate1|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status1 }}</div>
+            {% if data.c_status1 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status1 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -106,22 +146,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status2 }}</div>
+            {% if data.em_status2 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status2 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status2 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status2 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank2 }}</div>
+            {% if data.rank2 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank2 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank2 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank2 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate2|default_if_none:'' }} ~ {{ data.c_edate2|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate2|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate2|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status2 }}</div>
+            {% if data.c_status2 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status2 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -149,22 +209,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status3 }}</div>
+            {% if data.em_status3 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status3 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status3 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status3 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank3 }}</div>
+            {% if data.rank3 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank3 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank3 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank3 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate3|default_if_none:'' }} ~ {{ data.c_edate3|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate3|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate3|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status3 }}</div>
+            {% if data.c_status3 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status3 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -192,22 +272,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status4 }}</div>
+            {% if data.em_status4 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status4 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status4 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status4 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank4 }}</div>
+            {% if data.rank4 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank4 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank4 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank4 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate4|default_if_none:'' }} ~ {{ data.c_edate4|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate4|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate4|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status4 }}</div>
+            {% if data.c_status4 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status4 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -235,22 +335,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status5 }}</div>
+            {% if data.em_status5 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status5 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status5 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status5 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank5 }}</div>
+            {% if data.rank5 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank5 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank5 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank5 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate5|default_if_none:'' }} ~ {{ data.c_edate5|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate5|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate5|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status5 }}</div>
+            {% if data.c_status5 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status5 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -278,22 +398,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status6 }}</div>
+            {% if data.em_status6 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status6 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status6 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status6 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank6 }}</div>
+            {% if data.rank6 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank6 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank6 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank6 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate6|default_if_none:'' }} ~ {{ data.c_edate6|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate6|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate6|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status6 }}</div>
+            {% if data.c_status6 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status6 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -321,22 +461,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status7 }}</div>
+            {% if data.em_status7 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status7 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status7 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status7 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank7 }}</div>
+            {% if data.rank7 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank7 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank7 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank7 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate7|default_if_none:'' }} ~ {{ data.c_edate7|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate7|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate7|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status7 }}</div>
+            {% if data.c_status7 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status7 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -364,22 +524,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status8 }}</div>
+            {% if data.em_status8 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status8 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status8 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status8 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank8 }}</div>
+            {% if data.rank8 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank8 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank8 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank8 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate8|default_if_none:'' }} ~ {{ data.c_edate8|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate8|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate8|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status8 }}</div>
+            {% if data.c_status8 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status8 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
@@ -407,22 +587,42 @@
         <br>
         <div class="row career_list">
             <div class="col">정규직여부</div>
-            <div class="col">{{ data.em_status7 }}</div>
+            {% if data.em_status9 == "1" %}
+                <div class="col">정규직</div>
+            {% elif data.em_status9 == "2" %}
+                <div class="col">계약직</div>
+            {% elif data.em_status9 == "3" %}
+                <div class="col">파견직</div>
+            {% elif data.em_status9 == "4" %}
+                <div class="col">인턴</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">직급</div>
-            <div class="col">{{ data.rank9 }}</div>
+            {% if data.rank9 == "1" %}
+                <div class="col">사원</div>
+            {% elif data.rank9 == "2" %}
+                <div class="col">대리</div>
+            {% elif data.rank9 == "3" %}
+                <div class="col">과장</div>
+            {% elif data.rank9 == "4" %}
+                <div class="col">팀장</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
             <div class="col">근무기간</div>
-            <div class="col">{{ data.c_sdate9|default_if_none:'' }} ~ {{ data.c_edate9|default_if_none:'' }}</div>
+            <div class="col">{{ data.c_sdate9|date:'Y-m-d'|default_if_none:'' }} ~ {{ data.c_edate9|date:'Y-m-d'|default_if_none:'' }}</div>
         </div>
         <br>
         <div class="row career_list">
             <div class="col">재직상태</div>
-            <div class="col">{{ data.c_status9 }}</div>
+            {% if data.c_status9 == "1" %}
+                <div class="col">재직</div>
+            {% elif data.c_status9 == "2" %}
+                <div class="col">퇴사</div>
+            {% endif %}
         </div>
         <br>
         <div class="row career_list">
