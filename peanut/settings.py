@@ -40,8 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'peanutapp.apps.PeanutappConfig',
-    'bootstrap4'
+    'bootstrap4',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".sidebar-nav li a").eq(1).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
+        $("b").text("Note");
+    });
+</script>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>A Simple Page with CKEditor</title>
+        <!-- Make sure the path to CKEditor is correct. -->
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ request.session.id }}"/>
+            <div class="row">
+                <div class="col">
+                <input type="text" class="form-control" placeholder="제목" name="title">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                  <select name="type" class="form-control">
+                    <option value="기타">타입(기타)</option>
+                  </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                <textarea name="content" id="content" rows="10" cols="80">
+                    This is my textarea to be replaced with CKEditor.
+                </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:13px;">등록</button>
+                </div>
+            </div>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'content' );
+            </script>
+        </form>
+    </body>
+</html>
+{% endblock %}

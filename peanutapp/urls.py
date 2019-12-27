@@ -2,8 +2,9 @@
 
 from django.urls import path
 from . import views
-from django.urls import re_path
+from django.urls import include
 from django.views.static import serve
+
 
 '''
 urlpatterns = [
@@ -17,4 +18,6 @@ urlpatterns = [
     path('career/', views.CareerView.as_view(), name="career"),
     path('mypage/', views.MypageView.as_view(), name="mypage"),
     path('careerUpdate/', views.CareerUpdateView.as_view(), name="careerUpdate"),
+    path('note/',views.NoteView.as_view(), name='note'),
+    path('noteList/',views.NoteListView.as_view(), name='noteList')
 ]

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<script src="//cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".sidebar-nav li a").eq(1).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
+        $("b").text("Note");
+    });
+</script>
+    <div style="position:absolute;">
+        {% for data in type %}
+        <div>{{ data.type}}</div>
+        {% endfor %}
+    </div>
+    {% for data in list %}
+    <div class="row" style="text-align:center;">
+        <div class="col">
+            {{ data.title}}
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <div class="col">
+            <a href="/note"><button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:-19px;">추가</button></a>
+        </div>
+    </div>
+{% endblock %}

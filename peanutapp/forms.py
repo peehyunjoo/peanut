@@ -1,5 +1,5 @@
 from django import forms
-from .models import career, oauth
+from .models import career, oauth, note
 
 class oauthForm(forms.ModelForm):
     class Meta:
@@ -19,3 +19,9 @@ class careerForm(forms.ModelForm):
                   'c_name7', 'em_status7', 'rank7', 'c_sdate7', 'c_edate7', 'c_status7', 'c_quit_reason7', 'content7',
                   'c_name8', 'em_status8', 'rank8', 'c_sdate8', 'c_edate8', 'c_status8', 'c_quit_reason8', 'content8',
                   'c_name9', 'em_status9', 'rank9', 'c_sdate9', 'c_edate9', 'c_status9', 'c_quit_reason9', 'content9','reg_date')
+
+
+class noteForm(forms.ModelForm):
+    class Meta:
+        model = note
+        fields = ('id','title','type','content','reg_date')

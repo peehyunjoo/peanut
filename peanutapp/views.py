@@ -5,12 +5,12 @@ from django.utils.dateformat import DateFormat
 from datetime import datetime
 from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse,HttpResponseRedirect, QueryDict
-from .forms import careerForm, oauthForm
+from .forms import careerForm, oauthForm, noteForm
 from django.views.decorators.csrf import csrf_exempt
 
 from django.views.generic import View
 from django.views.generic.edit import FormView
-from .models import career, oauth
+from .models import career, oauth, note
 
 class IndexView(View):
 
@@ -409,3 +409,45 @@ class CareerUpdateView(View):
         career.objects.filter(id=request.session.get('id')).update(**dict)
         return HttpResponseRedirect("/career")
 
+class NoteView(View):
+    form_class = noteForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/note.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        dict = request.POST.dict()
+        print(request.POST)
+
+        dict['id'] = request.session.get('id')
+        dict['title'] = request.POST.get('title')
+        dict['type'] = request.POST.get('type')
+        dict['content'] = request.POST.get('content')
+        dict['reg_date'] = DateFormat(datetime.now()).format('Y-m-d')
+
+        form = self.form_class(dict)
+
+        if form.is_valid():
+            career = form.save(commit=False)
+            career.save()
+            return HttpResponseRedirect("/noteList")
+
+        return render(request, self.template_name)
+
+class NoteListView(View):
+    form_class = noteForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/note_list.html'
+
+    def get(self, request):
+        #note_list = note.objects.get()
+        note_list = note.objects.filter(id=request.session.get('id')).values()
+        note_type = note.objects.filter(id=request.session.get('id')).values('type').distinct()
+        print(note_type)
+        data = {
+            'list' : note_list,
+            'type' : note_type
+        }
+        return render(request, self.template_name, data)

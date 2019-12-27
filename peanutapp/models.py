@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class oauth(models.Model):
@@ -118,3 +119,15 @@ class career(models.Model):
                 "&c_name7="+self.c_name7+"&em_status7="+self.em_status7+"&rank7="+self.rank7+"&c_sdate7="+str(self.c_sdate7)+"&c_edate7="+str(self.c_edate7)+"&c_status7="+self.c_status7+"&c_quit_reason7="+self.c_quit_reason7+"&content7="+self.content7+\
                 "&c_name8="+self.c_name8+"&em_status8="+self.em_status8+"&rank8="+self.rank8+"&c_sdate8="+str(self.c_sdate8)+"&c_edate8="+str(self.c_edate8)+"&c_status8="+self.c_status8+"&c_quit_reason8="+self.c_quit_reason8+"&content8="+self.content8+\
                 "&c_name9="+self.c_name9+"&em_status9="+self.em_status9+"&rank9="+self.rank9+"&c_sdate9="+str(self.c_sdate9)+"&c_edate9="+str(self.c_edate9)+"&c_status9="+self.c_status9+"&c_quit_reason9="+self.c_quit_reason9+"&content9="+self.content9+"&reg_date="+str(self.reg_date)
+
+class note(models.Model):
+
+    idx = models.AutoField(primary_key=True)
+    id = models.CharField(max_length=20)
+    type = models.CharField(max_length=10)
+    title = models.CharField(max_length=200)
+    content = RichTextUploadingField(blank=True,null=True)
+    reg_date = models.DateField()
+
+    def __str__(self):
+         return "idx="+str(self.idx)+"&id="+self.id+"&type="+self.type+"&title="+self.title+"&content="+self.content+"&reg_date="+str(self.reg_date)
