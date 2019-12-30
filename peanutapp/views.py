@@ -442,12 +442,40 @@ class NoteListView(View):
     template_name = 'peanutapp/note_list.html'
 
     def get(self, request):
-        #note_list = note.objects.get()
-        note_list = note.objects.filter(id=request.session.get('id')).values()
-        note_type = note.objects.filter(id=request.session.get('id')).values('type').distinct()
-        print(note_type)
+        if (request.session.get('id')):
+            #note_list = note.objects.get()
+            note_list = note.objects.filter(id=request.session.get('id')).values()
+            note_type = note.objects.filter(id=request.session.get('id')).values('type').distinct()
+            print(note_list)
+            data = {
+                'list' : note_list,
+                'type' : note_type
+            }
+            return render(request, self.template_name, data)
+        else:
+            return HttpResponseRedirect("/")
+
+class NoteListUpdate(View):
+    form_class = noteForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/note_update.html'
+
+    def get(self, request):
+        print(request.GET.get('idx'))
+        note_list = note.objects.filter(idx=request.GET.get('idx')).values()
         data = {
-            'list' : note_list,
-            'type' : note_type
+            'list': note_list
         }
         return render(request, self.template_name, data)
+
+    def post(self, request, *args, **kwargs):
+
+        dict = {
+            'title' : request.POST.get('title'),
+            'idx' : request.POST.get('idx'),
+            'content' : request.POST.get('content'),
+            'type' : request.POST.get('type')
+        }
+
+        note.objects.filter(idx=request.POST.get('idx')).update(**dict)
+        return HttpResponseRedirect("/noteList")

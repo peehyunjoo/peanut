@@ -15,7 +15,7 @@
     {% for data in list %}
     <div class="row" style="text-align:center;">
         <div class="col">
-            {{ data.title}}
+            <a href="/noteListUpdate?idx={{ data.idx }}">{{ data.title}}</a>
         </div>
     </div>
     {% endfor %}

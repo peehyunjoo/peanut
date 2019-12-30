@@ -19,5 +19,6 @@ urlpatterns = [
     path('mypage/', views.MypageView.as_view(), name="mypage"),
     path('careerUpdate/', views.CareerUpdateView.as_view(), name="careerUpdate"),
     path('note/',views.NoteView.as_view(), name='note'),
-    path('noteList/',views.NoteListView.as_view(), name='noteList')
+    path('noteList/',views.NoteListView.as_view(), name='noteList'),
+    path('noteListUpdate/',views.NoteListUpdate.as_view(), name='noteupdate')
 ]
