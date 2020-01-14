@@ -9,12 +9,12 @@
 </script>
     <div style="position:absolute;">
         {% for data in type %}
-        <div>{{ data.type}}</div>
+        <div style="z-index: 100;"> <a href="/noteList?type={{data.type}}">{{ data.type}} </a> </div>
         {% endfor %}
     </div>
     {% for data in list %}
     <div class="row" style="text-align:center;">
-        <div class="col">
+        <div class="col offset-md-1 notelist">
             <a href="/noteListUpdate?idx={{ data.idx }}">{{ data.title}}</a>
         </div>
     </div>

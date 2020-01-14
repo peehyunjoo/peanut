@@ -444,7 +444,12 @@ class NoteListView(View):
     def get(self, request):
         if (request.session.get('id')):
             #note_list = note.objects.get()
-            note_list = note.objects.filter(id=request.session.get('id')).values()
+            if(request.GET.get('type')):
+                type = request.GET.get('type')
+            else:
+                type = 'etc'
+                
+            note_list = note.objects.filter(id=request.session.get('id'), type=type).values()
             note_type = note.objects.filter(id=request.session.get('id')).values('type').distinct()
             print(note_list)
             data = {

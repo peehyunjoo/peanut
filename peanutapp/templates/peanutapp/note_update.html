@@ -28,7 +28,17 @@
             <div class="row">
                 <div class="col">
                   <select name="type" class="form-control">
-                    <option value="기타">{{ data.type }}</option>
+                    <option value="etc" {% if data.type ==  "etc" %} selected="selected" {% endif %}>타입(etc)</option>
+                    <option value="java" {% if data.type ==  "java" %} selected="selected" {% endif %}>타입(Java)</option>
+                    <option value="python" {% if data.type ==  "python" %} selected="selected" {% endif %}>타입(Python)</option>
+                    <option value="php" {% if data.type ==  "php" %} selected="selected" {% endif %}>타입(php)</option>
+                    <option value="c" {% if data.type ==  "c" %} selected="selected" {% endif %}>타입(c)</option>
+                    <option value="javascript" {% if data.type ==  "javascript" %} selected="selected" {% endif %}>타입(Javascript)</option>
+                    <option value="nodejs" {% if data.type ==  "nodejs" %} selected="selected" {% endif %}>타입(nodeJs)</option>
+                    <option value="reactjs" {% if data.type ==  "reactjs" %} selected="selected" {% endif %}>타입(reactJs)</option>
+                    <option value="server" {% if data.type ==  "server" %} selected="selected" {% endif %}>타입(serever)</option>
+                    <option value="android" {% if data.type ==  "android" %} selected="selected" {% endif %}>타입(android)</option>
+                    <option value="db" {% if data.type ==  "db" %} selected="selected" {% endif %}>타입(db)</option>
                   </select>
                 </div>
             </div>
