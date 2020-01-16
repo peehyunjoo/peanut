@@ -5,6 +5,19 @@
     $(document).ready(function(){
         $(".sidebar-nav li a").eq(1).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
         $("b").text("Note");
+
+      $("#type").change(function(){
+        var type = $(this).val();
+        $("#type").val(type);
+
+        for(var i = 0 ;i <11; i++){
+          if($("#type option").eq(i).val() == month){
+            $("#type option").eq(i).attr("selected",true);
+            $("#type option").not(':eq('+i+')').attr("selected",false);
+          }
+        }
+        });
+
     });
 </script>
 <html lang="en">
@@ -25,18 +38,18 @@
             <br>
             <div class="row">
                 <div class="col">
-                  <select name="type" class="form-control">
-                    <option value="기타">타입(기타)</option>
-                    <option value="기타">타입(Java)</option>
-                    <option value="기타">타입(Python)</option>
-                    <option value="기타">타입(php)</option>
-                    <option value="기타">타입(c)</option>
-                    <option value="기타">타입(Javascript)</option>
-                    <option value="기타">타입(nodeJs)</option>
-                    <option value="기타">타입(reactJs)</option>
-                    <option value="기타">타입(serever)</option>
-                    <option value="기타">타입(android)</option>
-                    <option value="기타">타입(db)</option>
+                  <select name="type" id="type" class="form-control">
+                    <option value="etc">타입(기타)</option>
+                    <option value="java">타입(Java)</option>
+                    <option value="python">타입(Python)</option>
+                    <option value="php">타입(php)</option>
+                    <option value="c">타입(c)</option>
+                    <option value="javascript">타입(Javascript)</option>
+                    <option value="nodejs">타입(nodeJs)</option>
+                    <option value="reactjs">타입(reactJs)</option>
+                    <option value="server">타입(serever)</option>
+                    <option value="android">타입(android)</option>
+                    <option value="db">타입(db)</option>
                   </select>
                 </div>
             </div>

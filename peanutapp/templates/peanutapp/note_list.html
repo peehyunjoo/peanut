@@ -7,21 +7,32 @@
         $("b").text("Note");
     });
 </script>
-    <div style="position:absolute;">
-        {% for data in type %}
-        <div style="z-index: 100;"> <a href="/noteList?type={{data.type}}">{{ data.type}} </a> </div>
+<style>
+    a{color : black}
+</style>
+    <div class="col">
+        <div style="position:absolute;">
+            {% for data in type %}
+                {% if request.GET.type == data.type %}
+                    {% with style="color:#B00020;font-weight:500" %}
+                        <div style="z-index: 100;"> <a href="/noteList?type={{data.type}}" style ={{ style }}>{{ data.type }} </a> </div>
+                    {% endwith %}
+                {% else %}
+                    <div style="z-index: 100;"> <a href="/noteList?type={{data.type}}">{{ data.type }} </a> </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% for data in list %}
+        <div class="row" style="text-align:center;">
+            <div class="notelist" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;margin-left:34%;width:300px;">
+                <a href="/noteListUpdate?idx={{ data.idx }}">{{ data.title}}</a>
+            </div>
+        </div>
         {% endfor %}
     </div>
-    {% for data in list %}
-    <div class="row" style="text-align:center;">
-        <div class="col offset-md-1 notelist">
-            <a href="/noteListUpdate?idx={{ data.idx }}">{{ data.title}}</a>
-        </div>
-    </div>
-    {% endfor %}
     <div class="row">
         <div class="col">
-            <a href="/note"><button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:-19px;">추가</button></a>
+            <a href="/note"><button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:13px;">추가</button></a>
         </div>
     </div>
 {% endblock %}
