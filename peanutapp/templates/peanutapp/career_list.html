@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-    <script>
+<script xmlns="http://www.w3.org/1999/html">
     $(document).ready(function(){
         $(".sidebar-nav li a").eq(0).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
         $("b").text("Career List");
     });
 </script>
+<style>
+    textarea{
+        width : 100%;
+        border : none;
+        text-align : center;
+    }
+</style>
     {% for data in list %}
 
     {% if data.c_name0 == None %}
@@ -65,7 +72,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content0|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content0|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -128,7 +135,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content1|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly">{{ data.content1|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -191,7 +198,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content2|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content2|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -254,7 +261,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content3|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content3|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -317,7 +324,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content4|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content4|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -380,7 +387,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content5|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content5|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -443,7 +450,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content6|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content6|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -506,7 +513,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content7|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content7|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -569,7 +576,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content8|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content8|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -632,7 +639,7 @@
         <br>
         <div class="row career_list">
             <div class="col">업무내용</div>
-            <div class="col">{{ data.content9|default_if_none:'' }}</div>
+            <div class="col"><textarea readonly="readonly" rows="5" readonly="readonly">{{ data.content9|default_if_none:'' }}</textarea></div>
         </div>
         <br>
         <hr style="height:1px;border:none;color:#333;background-color:#333;" />

@@ -83,7 +83,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content0 }}" name="content0"></textarea>
+            <textarea rows="5" class="form-control" name="content0">{{ data.content0 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -149,7 +149,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_season1 | default_if_none:'' }}" name="c_quit_reason1">
+          <input type="text" class="form-control" value="{{ data.c_quit_reason1 | default_if_none:''}}" name="c_quit_reason1">
         </div>
     </div>
     &nbsp;
@@ -158,7 +158,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content1 | default_if_none:'' }}" name="content1"></textarea>
+            <textarea rows="5" class="form-control" name="content1">{{ data.content1 | default_if_none:'' }}</textarea>
         </div>
     </div>
 
@@ -234,7 +234,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content2 | default_if_none:''}}" name="content2"></textarea>
+            <textarea rows="5" class="form-control" name="content2">{{ data.content2 | default_if_none:''}} </textarea>
         </div>
     </div>
     <br>
@@ -309,7 +309,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content3 | default_if_none:''}}" name="content3"></textarea>
+            <textarea rows="5" class="form-control" name="content3">{{ data.content3 | default_if_none:''}} </textarea>
         </div>
     </div>
     <br>
@@ -384,7 +384,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content4 | default_if_none:''}}" name="content4"></textarea>
+            <textarea rows="5" class="form-control" name="content4">{{ data.content4 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -459,7 +459,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content5 | default_if_none:''}}" name="content5"></textarea>
+            <textarea rows="5" class="form-control" name="content5">{{ data.content5 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -535,7 +535,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content6 | default_if_none:''}}" name="content6"></textarea>
+            <textarea rows="5" class="form-control" name="content6">{{ data.content6 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -610,7 +610,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content7 | default_if_none:''}}" name="content7"></textarea>
+            <textarea rows="5" class="form-control" name="content7">{{ data.content7 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -685,7 +685,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content8 | default_if_none:''}}" name="content8"></textarea>
+            <textarea rows="5" class="form-control" name="content8">{{ data.content8 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -759,7 +759,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" value="{{ data.content9|default_if_none:''}}" name="content9"></textarea>
+            <textarea rows="5" class="form-control" name="content9">{{ data.content9|default_if_none:''}}"</textarea>
         </div>
     </div>
     <br>

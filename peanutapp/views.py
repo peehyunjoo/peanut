@@ -485,3 +485,15 @@ class NoteListUpdate(View):
 
         note.objects.filter(idx=request.POST.get('idx')).update(**dict)
         return HttpResponseRedirect("/noteList")
+
+class NoteDelete(View):
+    form_class = noteForm
+    initial = {'key': 'value'}
+
+    def get(self, request):
+        idx = request.GET.get('idx')
+        
+        note_list = note.objects.filter(idx=idx)
+        note_list.delete()
+        return HttpResponseRedirect("/noteList")
+
