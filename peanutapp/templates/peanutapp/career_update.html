@@ -11,6 +11,20 @@
         });
     });
 </script>
+<style>
+    .c_name{
+        width:90px;
+    }
+    .c_quit_reason{
+        width:70px;
+    }
+    select, input, textarea{
+        border-radius: .25rem;
+        border: 0.5px solid;
+        text-align: center;
+        border-color:gray;
+    }
+</style>
 
 <form style="width:100%;" method="POST" action="/careerUpdate/">
     <input type="hidden" name="id" value="{{ request.session.id }}"/>
@@ -25,13 +39,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{data.c_name0}}" name="c_name0">
+          <input type="text" class="c_name" value="{{data.c_name0}}" name="c_name0">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status0" class="form-control">
+          <select name="em_status0" class="">
             <option value="1" {% if data.em_status0 ==  "1" %} selected="selected" {% endif %} >정규직</option>
             <option value="2" {% if data.em_status0 ==  "2" %} selected="selected" {% endif %} >계약직</option>
             <option value="3" {% if data.em_status0 ==  "3" %} selected="selected" {% endif %} >파견직</option>
@@ -45,7 +59,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank0" class="form-control">
+          <select name="rank0" class="">
             <option value="1" {% if data.rank0 ==  "1" %} selected="selected" {% endif %} >사원</option>
             <option value="2" {% if data.rank0 ==  "2" %} selected="selected" {% endif %} >대리</option>
             <option value="3" {% if data.rank0 ==  "3" %} selected="selected" {% endif %} >과장</option>
@@ -56,7 +70,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate0|date:'Y-m-d' }}" name="c_sdate0"> ~ <input type="date" class="form-control" value="{{ data.c_edate0|date:'Y-m-d' }}" name="c_edate0">
+          <input type="date" class="" value="{{ data.c_sdate0|date:'Y-m-d' }}" name="c_sdate0"> ~ <input type="date" class="" value="{{ data.c_edate0|date:'Y-m-d' }}" name="c_edate0">
         </div>
     </div>
     &nbsp;
@@ -65,7 +79,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status0" class="form-control">
+          <select name="c_status0" class="">
             <option value="1" {% if data.c_status0 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status0 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -74,7 +88,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason0 | default_if_none:''}}" name="c_quit_reason0">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason0 | default_if_none:''}}" name="c_quit_reason0">
         </div>
     </div>
     &nbsp;
@@ -83,7 +97,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content0">{{ data.content0 | default_if_none:''}}</textarea>
+            <textarea rows="5" class="" name="content0">{{ data.content0 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -100,13 +114,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="회사명" value="{{ data.c_name1 | default_if_none:'' }}" name="c_name1">
+          <input type="text" class="c_name" placeholder="회사명" value="{{ data.c_name1 | default_if_none:'' }}" name="c_name1">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status1" class="form-control">
+          <select name="em_status1" class="">
             <option value="1" {% if data.em_status1 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status1 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status1 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -120,7 +134,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank1" class="form-control">
+          <select name="rank1" class="">
             <option value="1">사원</option>
             <option value="2">대리</option>
             <option value="3">과장</option>
@@ -131,7 +145,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate1|date:'Y-m-d' }}" name="c_sdate1"> ~ <input type="date" class="form-control" value="{{ data.c_edate1|date:'Y-m-d' }}" name="c_edate1">
+          <input type="date" class="" value="{{ data.c_sdate1|date:'Y-m-d' }}" name="c_sdate1"> ~ <input type="date" class="" value="{{ data.c_edate1|date:'Y-m-d' }}" name="c_edate1">
         </div>
     </div>
     &nbsp;
@@ -140,7 +154,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status1" class="form-control">
+          <select name="c_status1" class="">
             <option value="1" {% if data.c_status1 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status1 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -149,7 +163,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason1 | default_if_none:''}}" name="c_quit_reason1">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason1 | default_if_none:''}}" name="c_quit_reason1">
         </div>
     </div>
     &nbsp;
@@ -158,7 +172,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content1">{{ data.content1 | default_if_none:'' }}</textarea>
+            <textarea rows="5" class="" name="content1">{{ data.content1 | default_if_none:'' }}</textarea>
         </div>
     </div>
 
@@ -176,13 +190,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name2 | default_if_none:'' }}" name="c_name2">
+          <input type="text" class="c_name" value="{{ data.c_name2 | default_if_none:'' }}" name="c_name2">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status2" class="form-control">
+          <select name="em_status2" class="">
             <option value="1" {% if data.em_status2 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status2 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status2 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -196,7 +210,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank2" class="form-control">
+          <select name="rank2" class="">
             <option value="1" {% if data.rank2 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank2 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank2 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -207,7 +221,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate2|date:'Y-m-d' }}" name="c_sdate2"> ~ <input type="date" class="form-control" value="{{ data.c_edate2|date:'Y-m-d' }}" name="c_edate2">
+          <input type="date" class="" value="{{ data.c_sdate2|date:'Y-m-d' }}" name="c_sdate2"> ~ <input type="date" class="" value="{{ data.c_edate2|date:'Y-m-d' }}" name="c_edate2">
         </div>
     </div>
     &nbsp;
@@ -216,7 +230,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status2" class="form-control">
+          <select name="c_status2" class="">
             <option value="1" {% if data.c_status2 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status2 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -225,7 +239,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason2 | default_if_none:'' }}" name="c_quit_reason2">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason2 | default_if_none:'' }}" name="c_quit_reason2">
         </div>
     </div>
     &nbsp;
@@ -234,7 +248,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content2">{{ data.content2 | default_if_none:''}} </textarea>
+            <textarea rows="5" class="" name="content2">{{ data.content2 | default_if_none:''}} </textarea>
         </div>
     </div>
     <br>
@@ -251,13 +265,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name3 | default_if_none:'' }}" name="c_name3">
+          <input type="text" class="c_name" value="{{ data.c_name3 | default_if_none:'' }}" name="c_name3">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status3" class="form-control">
+          <select name="em_status3" class="">
             <option value="1" {% if data.em_status3 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status3 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status3 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -271,7 +285,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank3" class="form-control">
+          <select name="rank3" class="">
             <option value="1" {% if data.rank3 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank3 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank3 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -282,7 +296,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate3|date:'Y-m-d' }}" name="c_sdate3"> ~ <input type="date" class="form-control" value="{{ data.c_edate3|date:'Y-m-d' }}" name="c_edate3">
+          <input type="date" class="" value="{{ data.c_sdate3|date:'Y-m-d' }}" name="c_sdate3"> ~ <input type="date" class="" value="{{ data.c_edate3|date:'Y-m-d' }}" name="c_edate3">
         </div>
     </div>
     &nbsp;
@@ -291,7 +305,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status3" class="form-control">
+          <select name="c_status3" class="">
             <option value="1" {% if data.c_status3 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status3 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -300,7 +314,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason3 | default_if_none:''}}" name="c_quit_reason3">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason3 | default_if_none:''}}" name="c_quit_reason3">
         </div>
     </div>
     &nbsp;
@@ -309,7 +323,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content3">{{ data.content3 | default_if_none:''}} </textarea>
+            <textarea rows="5" class="" name="content3">{{ data.content3 | default_if_none:''}} </textarea>
         </div>
     </div>
     <br>
@@ -326,13 +340,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name4 | default_if_none:''}}" name="c_name4">
+          <input type="text" class="c_name" value="{{ data.c_name4 | default_if_none:''}}" name="c_name4">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status4" class="form-control">
+          <select name="em_status4" class="">
             <option value="1" {% if data.em_status4 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status4 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status4 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -346,7 +360,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank4" class="form-control">
+          <select name="rank4" class="">
             <option value="1" {% if data.rank4 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank4 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank4 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -357,7 +371,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate4|date:'Y-m-d' }}" name="c_sdate4"> ~ <input type="date" class="form-control" value="{{ data.c_edate4|date:'Y-m-d' }}" name="c_edate4">
+          <input type="date" class="" value="{{ data.c_sdate4|date:'Y-m-d' }}" name="c_sdate4"> ~ <input type="date" class="" value="{{ data.c_edate4|date:'Y-m-d' }}" name="c_edate4">
         </div>
     </div>
     &nbsp;
@@ -366,7 +380,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status4" class="form-control">
+          <select name="c_status4" class="">
             <option value="1" {% if data.c_status4 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status4 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -375,7 +389,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason4 | default_if_none:''}}" name="c_quit_reason4">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason4 | default_if_none:''}}" name="c_quit_reason4">
         </div>
     </div>
     &nbsp;
@@ -384,7 +398,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content4">{{ data.content4 | default_if_none:''}}</textarea>
+            <textarea rows="5" class="" name="content4">{{ data.content4 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -401,13 +415,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name5 | default_if_none:''}}" name="c_name5">
+          <input type="text" class="c_name" value="{{ data.c_name5 | default_if_none:''}}" name="c_name5">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status5" class="form-control">
+          <select name="em_status5" class="">
             <option value="1" {% if data.em_status5 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status5 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status5 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -421,7 +435,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank5" class="form-control">
+          <select name="rank5" class="">
             <option value="1" {% if data.rank5 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank5 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank5 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -432,7 +446,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate5|date:'Y-m-d' }}" name="c_sdate5"> ~ <input type="date" class="form-control" value="{{ data.c_edate5|date:'Y-m-d' }}" name="c_edate5">
+          <input type="date" class="" value="{{ data.c_sdate5|date:'Y-m-d' }}" name="c_sdate5"> ~ <input type="date" class="" value="{{ data.c_edate5|date:'Y-m-d' }}" name="c_edate5">
         </div>
     </div>
     &nbsp;
@@ -441,7 +455,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status5" class="form-control">
+          <select name="c_status5" class="">
             <option value="1" {% if data.c_status5 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status5 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -450,7 +464,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason5 | default_if_none:''}}" name="c_quit_reason5">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason5 | default_if_none:''}}" name="c_quit_reason5">
         </div>
     </div>
     &nbsp;
@@ -459,7 +473,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content5">{{ data.content5 | default_if_none:''}}</textarea>
+            <textarea rows="5" class="" name="content5">{{ data.content5 | default_if_none:''}}</textarea>
         </div>
     </div>
     <br>
@@ -476,13 +490,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name6 | default_if_none:''}}" name="c_name6">
+          <input type="text" class="c_name" value="{{ data.c_name6 | default_if_none:''}}" name="c_name6">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status6" class="form-control">
+          <select name="em_status6" class="">
             <option value="1" {% if data.em_status6 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status6 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status6 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -496,7 +510,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank6" class="form-control">
+          <select name="rank6" class="">
             <option value="1" {% if data.rank6 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank6 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank6 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -507,7 +521,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate6|date:'Y-m-d' }}" name="c_sdate6"> ~ <input type="date" class="form-control" value="{{ data.c_edate6|date:'Y-m-d' }}" name="c_edate6">
+          <input type="date" class="" value="{{ data.c_sdate6|date:'Y-m-d' }}" name="c_sdate6"> ~ <input type="date" class="" value="{{ data.c_edate6|date:'Y-m-d' }}" name="c_edate6">
         </div>
     </div>
     &nbsp;
@@ -516,7 +530,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status6" class="form-control">
+          <select name="c_status6" class="">
             <option value="1" {% if data.c_status6 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status6 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -525,7 +539,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason6 | default_if_none:''}}" name="c_quit_reason6">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason6 | default_if_none:''}}" name="c_quit_reason6">
         </div>
     </div>
     <br>
@@ -535,7 +549,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content6">{{ data.content6 | default_if_none:''}} </textarea>
+            <textarea rows="5" class="" name="content6">{{ data.content6 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -551,13 +565,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name7 | default_if_none:''}}" name="c_name7">
+          <input type="text" class="c_name" value="{{ data.c_name7 | default_if_none:''}}" name="c_name7">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status7" class="form-control">
+          <select name="em_status7" class="">
             <option value="1" {% if data.em_status7 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status7 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status7 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -571,7 +585,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank7" class="form-control">
+          <select name="rank7" class="">
             <option value="1" {% if data.rank7 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank7 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank7 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -582,7 +596,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate7|date:'Y-m-d' }}" name="c_sdate7"> ~ <input type="date" class="form-control" value="{{ data.c_edate7|date:'Y-m-d' }}" name="c_edate7">
+          <input type="date" class="" value="{{ data.c_sdate7|date:'Y-m-d' }}" name="c_sdate7"> ~ <input type="date" class="" value="{{ data.c_edate7|date:'Y-m-d' }}" name="c_edate7">
         </div>
     </div>
     &nbsp;
@@ -591,7 +605,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status7" class="form-control">
+          <select name="c_status7" class="">
             <option value="1" {% if data.c_status7 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status7 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -600,7 +614,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason7 | default_if_none:''}}" name="c_quit_reason7">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason7 | default_if_none:''}}" name="c_quit_reason7">
         </div>
     </div>
     <br>
@@ -610,7 +624,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content7">{{ data.content7 | default_if_none:''}} </textarea>
+            <textarea rows="5" class="" name="content7">{{ data.content7 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -626,13 +640,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control"  value="{{ data.c_name8 | default_if_none:''}}" name="c_name8">
+          <input type="text" class="c_name"  value="{{ data.c_name8 | default_if_none:''}}" name="c_name8">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status8" class="form-control">
+          <select name="em_status8" class="">
             <option value="1" {% if data.em_status8 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status8 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status8 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -646,7 +660,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank8" class="form-control">
+          <select name="rank8" class="">
             <option value="1" {% if data.rank8 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank8 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank8 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -657,7 +671,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate8|date:'Y-m-d' }}" name="c_sdate8"> ~ <input type="date" class="form-control" value="{{ data.c_edate8|date:'Y-m-d' }}" name="c_edate8">
+          <input type="date" class="" value="{{ data.c_sdate8|date:'Y-m-d' }}" name="c_sdate8"> ~ <input type="date" class="" value="{{ data.c_edate8|date:'Y-m-d' }}" name="c_edate8">
         </div>
     </div>
     &nbsp;
@@ -666,7 +680,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status8" class="form-control">
+          <select name="c_status8" class="">
             <option value="1" {% if data.c_status8 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status8 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -675,7 +689,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason8 | default_if_none:''}}" name="c_quit_reason8">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason8 | default_if_none:''}}" name="c_quit_reason8">
         </div>
     </div>
     <br>
@@ -685,7 +699,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content8">{{ data.content8 | default_if_none:''}} </textarea>
+            <textarea rows="5" class="" name="content8">{{ data.content8 | default_if_none:''}} </textarea>
         </div>
     </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -701,13 +715,13 @@
           회사명
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_name9 | default_if_none:''}}" name="c_name9">
+          <input type="text" class="c_name" value="{{ data.c_name9 | default_if_none:''}}" name="c_name9">
         </div>
         <div class="col">
           정규직 여부
         </div>
         <div class="col">
-          <select name="em_status9" class="form-control">
+          <select name="em_status9" class="">
             <option value="1" {% if data.em_status9 ==  "1" %} selected="selected" {% endif %}>정규직</option>
             <option value="2" {% if data.em_status9 ==  "2" %} selected="selected" {% endif %}>계약직</option>
             <option value="3" {% if data.em_status9 ==  "3" %} selected="selected" {% endif %}>파견직</option>
@@ -721,7 +735,7 @@
           직위
         </div>
         <div class="col">
-          <select name="rank9" class="form-control">
+          <select name="rank9" class="">
             <option value="1" {% if data.rank9 ==  "1" %} selected="selected" {% endif %}>사원</option>
             <option value="2" {% if data.rank9 ==  "2" %} selected="selected" {% endif %}>대리</option>
             <option value="3" {% if data.rank9 ==  "3" %} selected="selected" {% endif %}>과장</option>
@@ -732,7 +746,7 @@
           근무기간
         </div>
         <div class="col">
-          <input type="date" class="form-control" value="{{ data.c_sdate9|date:'Y-m-d' }}" name="c_sdate9"> ~ <input type="date" class="form-control" value="{{ data.c_edate9|date:'Y-m-d' }}" name="c_edate9">
+          <input type="date" class="" value="{{ data.c_sdate9|date:'Y-m-d' }}" name="c_sdate9"> ~ <input type="date" class="" value="{{ data.c_edate9|date:'Y-m-d' }}" name="c_edate9">
         </div>
     </div>
     &nbsp;
@@ -741,7 +755,7 @@
           재직상태
         </div>
         <div class="col">
-          <select name="c_status9" class="form-control">
+          <select name="c_status9" class="">
             <option value="1" {% if data.c_status9 ==  "1" %} selected="selected" {% endif %}>재직</option>
             <option value="2" {% if data.c_status9 ==  "2" %} selected="selected" {% endif %}>퇴사</option>
           </select>
@@ -750,7 +764,7 @@
           사직사유
         </div>
         <div class="col">
-          <input type="text" class="form-control" value="{{ data.c_quit_reason9|default_if_none:''}}" name="c_quit_reason9">
+          <input type="text" class="c_quit_reason" value="{{ data.c_quit_reason9|default_if_none:''}}" name="c_quit_reason9">
         </div>
     </div>
     &nbsp;
@@ -759,7 +773,7 @@
           업무내용
         </div>
         <div class="col">
-            <textarea rows="5" class="form-control" name="content9">{{ data.content9|default_if_none:''}}"</textarea>
+            <textarea rows="5" class="" name="content9">{{ data.content9|default_if_none:''}}"</textarea>
         </div>
     </div>
     <br>
