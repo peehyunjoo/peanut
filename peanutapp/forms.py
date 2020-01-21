@@ -1,5 +1,5 @@
 from django import forms
-from .models import career, oauth, note
+from .models import career, oauth, note, education
 
 class oauthForm(forms.ModelForm):
     class Meta:
@@ -25,3 +25,8 @@ class noteForm(forms.ModelForm):
     class Meta:
         model = note
         fields = ('id','title','type','content','reg_date')
+
+class educationForm(forms.ModelForm):
+    class Meta:
+        model = education
+        fields = ('id','edu_category', 'name', 'location','sdate','edate','graduated_yn','subject','grades','high_category','uni_category')

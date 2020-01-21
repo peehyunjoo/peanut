@@ -5,12 +5,12 @@ from django.utils.dateformat import DateFormat
 from datetime import datetime
 from django.shortcuts import render
 from django.http import JsonResponse,HttpResponse,HttpResponseRedirect, QueryDict
-from .forms import careerForm, oauthForm, noteForm
+from .forms import careerForm, oauthForm, noteForm, educationForm
 from django.views.decorators.csrf import csrf_exempt
 
 from django.views.generic import View
 from django.views.generic.edit import FormView
-from .models import career, oauth, note
+from .models import career, oauth, note, education
 
 class IndexView(View):
 
@@ -497,3 +497,23 @@ class NoteDelete(View):
         note_list.delete()
         return HttpResponseRedirect("/noteList")
 
+
+class EducationView(View):
+    form_class = educationForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/education.html'
+    template_name1 = 'peanutapp/education_list.html'
+    def get(self, request):
+        if (request.session.get('id')):
+            education_list = education.objects.filter(id=request.session.get('id')).values()
+            print(education_list)
+            if (education_list):
+                data = {
+                    'list': education_list
+                }
+                return render(request,  self.template_name1, data)
+            else:
+                return render(request, self.template_name)
+            return render(request, self.template_name)
+        else:
+            return HttpResponseRedirect("/")

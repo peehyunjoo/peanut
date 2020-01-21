@@ -131,3 +131,21 @@ class note(models.Model):
 
     def __str__(self):
          return "idx="+str(self.idx)+"&id="+self.id+"&type="+self.type+"&title="+self.title+"&content="+self.content+"&reg_date="+str(self.reg_date)
+
+class education(models.Model):
+    idx = models.AutoField(primary_key=True)
+    id = models.CharField(max_length=20)
+    edu_category = models.CharField(max_length=5,null=True, blank=True)
+    name = models.CharField(max_length=30,null=True, blank=True)
+    location = models.CharField(max_length=10,null=True, blank=True)
+    sdate = models.DateField(null=True, blank=True)
+    edate = models.DateField(null=True, blank=True)
+    graduated_yn = models.CharField(max_length=2,null=True, blank=True)
+    subject = models.CharField(max_length=30,null=True, blank=True)
+    high_category = models.CharField(max_length=10,null=True, blank=True)
+    grades = models.CharField(max_length=3,null=True, blank=True)
+    uni_category = models.CharField(max_length=2,null=True, blank=True)
+
+    def __str__(self):
+         return "idx="+str(self.idx)+"&id="+self.id+"&edu_catergory="+self.edu_catergory+"&name="+self.name+"&location="+self.location+"&sdate="+str(self.sdate)+"&edate="+str(self.edate)+"&graduated_yn="\
+                +str(self.graduated_yn)+"&subject="+str(self.subject)+"&high_category="+str(self.high_category)+"&grades="+str(self.grades)+"&high_category="+str(self.high_category)+"&uni_category="+str(self.uni_category)
