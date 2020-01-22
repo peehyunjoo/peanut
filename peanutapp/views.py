@@ -517,3 +517,43 @@ class EducationView(View):
             return render(request, self.template_name)
         else:
             return HttpResponseRedirect("/")
+
+    def post(self, request, *args, **kwargs):
+        edu_category = request.POST.getlist('edu_category')
+        name = request.POST.getlist('name')
+        location = request.POST.getlist('location')
+        sdate = request.POST.getlist('sdate')
+        edate = request.POST.getlist('edate')
+        graduated_yn =  request.POST.getlist('graduated_yn')
+        subject = request.POST.getlist('subject')
+        high_category = request.POST.getlist('high_category')
+        grades = request.POST.getlist('grades')
+        uni_category = request.POST.getlist('uni_category')
+
+        print(sdate)
+
+        for i in range(len(request.POST.getlist('name'))-1):
+            print(i)
+            print(edu_category[i])
+            dict = {
+                'id' : request.POST.get('id'),
+                'edu_category': edu_category[i] or None,
+                'name': name[i] or None,
+                'location': location[i] or None,
+                'sdate': sdate[i] or None,
+                'edate': edate[i] or None,
+                'graduated_yn' : graduated_yn[i] or None,
+                'subject' : subject[i] or None,
+                'high_category' : high_category[i] or None,
+                'grades' : grades[i] or None,
+                'uni_category' : uni_category[i] or None
+            }
+
+            print(dict)
+    
+            form = self.form_class(dict)
+            if form.is_valid():
+                edu_save = form.save(commit=False)
+                edu_save.save()
+
+        return HttpResponseRedirect("/education")

@@ -35,6 +35,14 @@ $(document).ready(function () {
     }
   });
 
+  $('.edu_add').click(function(){
+    for(var i = 0 ; i < 10; i++) {
+      if ($(".edu_" + i).css("display") == "none") {
+        $(".edu_" + i).show("slow");
+        break;
+      }
+    }
+  });
 
 });
 

@@ -6,5 +6,100 @@
         $("b").text("Education");
     });
     </script>
-    LIST PAGE
+
+    {% for data in list %}
+
+    <div class="row edu_list">
+        <div class="col">학교</div>
+        {% if data.edu_category == "uni" %}
+            <div class="col">대학교</div>
+        {% elif data.edu_category == "high" %}
+            <div class="col">고등학교</div>
+        {% endif %}
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">학교명</div>
+        <div class="col">{{ data.name |default_if_none:'' }}</div>
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">소재지</div>
+        {% if data.location == "seoul" %}
+            <div class="col">서울</div>
+        {% else %}
+            <div class="col">지방</div>
+        {% endif %}
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">입학일</div>
+        <div class="col">{{ data.sdate |date:'Y-m-d'|default_if_none:'' }}</div>
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">졸업일</div>
+        <div class="col">{{ data.edate |date:'Y-m-d'|default_if_none:'' }}</div>
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">졸업여부</div>
+        {% if data.graduated_yn == "Y" %}
+        <div class="col">졸업</div>
+        {% elif data.graduated_yn == "N" %}
+        <div class="col">재학중</div>
+        {% endif %}
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">학과</div>
+        <div class="col">{{ data.subject |default_if_none:'' }}</div>
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">고등학교 구분</div>
+        {% if data.high_category == "0" %}
+        <div class="col">해당사항 없음</div>
+        {% elif data.high_category == "1" %}
+        <div class="col">인문계</div>
+        {% elif data.high_category == "2" %}
+        <div class="col">실업계</div>
+        {% endif %}
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">학점</div>
+        <div class="col">{{ data.grades |default_if_none:'' }}</div>
+    </div>
+    <br>
+
+    <div class="row edu_list">
+        <div class="col">학년제</div>
+        {% if data.uni_category == "0" %}
+        <div class="col">해당사항 없음</div>
+        {% elif data.uni_category == "2" %}
+        <div class="col">2년제</div>
+        {% elif data.uni_category == "3" %}
+        <div class="col">3년제</div>
+        {% elif data.uni_category == "4" %}
+        <div class="col">4년제</div>
+        {% endif %}
+    </div>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+    {% endfor %}
+
+    <div class="row" style="position: relative;margin: 0 auto;right: 32px;">
+        <div class="col">
+            <a href="/educationUpdate?id={{ request.session.id }}"><button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:-19px;">수정하기</button></a>
+        </div>
+    </div>
 {% endblock %}

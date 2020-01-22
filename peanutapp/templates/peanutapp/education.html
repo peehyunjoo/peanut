@@ -19,9 +19,11 @@
     <form style="width:100%;" method="POST">
     <input type="hidden" name="id" value="{{ request.session.id }}"/>
     {% csrf_token %}
+
+    <div class="edu_0">
     <div class="row">
         <div class="col">
-          <select name="type" name="edu_category" class="edu_category">
+          <select name="edu_category" class="edu_category">
             <option value="uni">대학교</option>
             <option value="high">고등학교</option>
           </select>
@@ -30,13 +32,13 @@
             <input type="text" name="name" placeholder="학교명" class="name">
         </div>
         <div class="col">
-            <input type="text" nanme="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
+            <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
         </div>
         <div class="col">
             <input type="text" name="edate" class="edate" placeholder="졸업일" onfocus="(this.type='date')" onblur="(this.type='text')">
         </div>
         <div class="col">
-           <select name="type" name="graduated_yn" class="graduated_yn">
+           <select name="graduated_yn" class="graduated_yn">
             <option value="">졸업여부</option>
             <option value="Y">졸업</option>
             <option value="N">재학중</option>
@@ -52,14 +54,129 @@
           <input type="text" name="grades" placeholder="점수" class="grades">
         </div>
         <div class="col">
-          <select name="type" name="high_category" class="high_category">
-            <option value="">인문/실업계 선택</option>
+          <select name="high_category" class="high_category">
+            <option value="0">해당사항 없음</option>
             <option value="1">인문계</option>
             <option value="2">실업계</option>
           </select>
         </div>
         <div class="col">
-          <select name="type" name="uni_category" class="uni_category">
+          <select name="uni_category" class="uni_category">
+            <option value="0">해당사항 없음</option>
+            <option value="2">2년제</option>
+            <option value="3">3년제</option>
+            <option value="4">4년제</option>
+          </select>
+        </div>
+        <div class="col">
+            <select name="location" class="location">
+            <option value="seoul">서울</option>
+            <option value="etc">지방</option>
+          </select>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+    <div class="edu_1" style="display:none;">
+    <div class="row">
+        <div class="col">
+          <select name="edu_category" class="edu_category">
+            <option value="uni">대학교</option>
+            <option value="high">고등학교</option>
+          </select>
+        </div>
+        <div class="col">
+            <input type="text" name="name" placeholder="학교명" class="name">
+        </div>
+        <div class="col">
+            <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
+        </div>
+        <div class="col">
+            <input type="text" name="edate" class="edate" placeholder="졸업일" onfocus="(this.type='date')" onblur="(this.type='text')">
+        </div>
+        <div class="col">
+           <select name="graduated_yn" class="graduated_yn">
+            <option value="">졸업여부</option>
+            <option value="Y">졸업</option>
+            <option value="N">재학중</option>
+          </select>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col">
+            <input type="text" name="subject" placeholder="학과" class="subject">
+        </div>
+        <div class="col">
+          <input type="text" name="grades" placeholder="점수" class="grades">
+        </div>
+        <div class="col">
+          <select name="high_category" class="high_category">
+            <option value="0">해당사항 없음</option>
+            <option value="1">인문계</option>
+            <option value="2">실업계</option>
+          </select>
+        </div>
+        <div class="col">
+          <select name="uni_category" class="uni_category">
+            <option value="0">해당사항 없음</option>
+            <option value="2">2년제</option>
+            <option value="3">3년제</option>
+            <option value="4">4년제</option>
+          </select>
+        </div>
+        <div class="col">
+            <select name="location" class="location">
+            <option value="seoul">서울</option>
+            <option value="etc">지방</option>
+          </select>
+        </div>
+    </div>
+    </div>
+    <br><br><br>
+
+    <div class="edu_2" style="display:none;">
+    <div class="row">
+        <div class="col">
+          <select name="edu_category" class="edu_category">
+            <option value="uni">대학교</option>
+            <option value="high">고등학교</option>
+          </select>
+        </div>
+        <div class="col">
+            <input type="text" name="name" placeholder="학교명" class="name">
+        </div>
+        <div class="col">
+            <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
+        </div>
+        <div class="col">
+            <input type="text" name="edate" class="edate" placeholder="졸업일" onfocus="(this.type='date')" onblur="(this.type='text')">
+        </div>
+        <div class="col">
+           <select name="graduated_yn" class="graduated_yn">
+            <option value="">졸업여부</option>
+            <option value="Y">졸업</option>
+            <option value="N">재학중</option>
+          </select>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+        <div class="col">
+            <input type="text" name="subject" placeholder="학과" class="subject">
+        </div>
+        <div class="col">
+          <input type="text" name="grades" placeholder="점수" class="grades">
+        </div>
+        <div class="col">
+          <select name="high_category" class="high_category">
+            <option value="0">해당상항 없음</option>
+            <option value="1">인문계</option>
+            <option value="2">실업계</option>
+          </select>
+        </div>
+        <div class="col">
+          <select name="uni_category" class="uni_category">
             <option value="0">해당상항 없음</option>
             <option value="2">2년제</option>
             <option value="3">3년제</option>
@@ -67,15 +184,19 @@
           </select>
         </div>
         <div class="col">
-            <select name="type" name="location" class="location">
+            <select name="location" class="location">
             <option value="seoul">서울</option>
             <option value="etc">지방</option>
           </select>
         </div>
     </div>
+    </div>
+
+    <i class="fas fa-plus-circle edu_add"></i>
     <div class="row">
         <div class="col">
             <button type="submit" class="btn btn-outline-dark" style="position:absolute;top:20px;float:right;right:13px;">추가</button>
         </div>
     </div>
+    </form>
 {% endblock %}
