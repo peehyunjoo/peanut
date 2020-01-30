@@ -22,5 +22,6 @@ urlpatterns = [
     path('noteList/',views.NoteListView.as_view(), name='noteList'),
     path('noteListUpdate/',views.NoteListUpdate.as_view(), name='noteupdate'),
     path('noteDelete/',views.NoteDelete.as_view(), name='notedelete'),
-    path('education/',views.EducationView.as_view(), name='education')
+    path('education/',views.EducationView.as_view(), name='education'),
+    path('educationUpdate/',views.EducationUpdateView.as_view(), name='educationUpdate')
 ]

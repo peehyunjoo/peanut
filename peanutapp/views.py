@@ -557,3 +557,56 @@ class EducationView(View):
                 edu_save.save()
 
         return HttpResponseRedirect("/education")
+
+class EducationUpdateView(View):
+    form_class = educationForm
+    initial = {'key': 'value'}
+    template_name = 'peanutapp/education_update.html'
+
+    def get(self, request):
+        if(request.GET.get('id')):
+            education_list = education.objects.filter(id=request.GET.get('id')).values()
+            print(education_list)
+            if (education_list):
+                data = {
+                    'list': education_list
+                }
+                return render(request, self.template_name, data)
+            else:
+                return HttpResponseRedirect("/education")
+
+    def post(self, request, *args, **kwargs):
+
+        idx = request.POST.getlist('idx')
+        edu_category = request.POST.getlist('edu_category')
+        name = request.POST.getlist('name')
+        location = request.POST.getlist('location')
+        sdate = request.POST.getlist('sdate')
+        edate = request.POST.getlist('edate')
+        graduated_yn = request.POST.getlist('graduated_yn')
+        subject = request.POST.getlist('subject')
+        high_category = request.POST.getlist('high_category')
+        grades = request.POST.getlist('grades')
+        uni_category = request.POST.getlist('uni_category')
+
+        #print(type(idx))
+        #print(type(high_category))
+        for i in range(len(request.POST.getlist('idx')) - 1):
+            #print(edu_category[i])
+            dict = {
+                'edu_category': edu_category[i] or None,
+                'name': name[i] or None,
+                'location': location[i] or None,
+                'sdate': sdate[i] or None,
+                'edate': edate[i] or None,
+                'graduated_yn': graduated_yn[i] or None,
+                'subject': subject[i] or None,
+                'high_category': high_category[i] or None,
+                'grades': grades[i] or None,
+                'uni_category': uni_category[i] or None
+            }
+
+            print(type(dict['sdate']))
+            education.objects.filter(idx=idx[i]).update(**dict)
+
+        return HttpResponseRedirect("/education")
