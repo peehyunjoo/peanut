@@ -4,7 +4,31 @@
     $(document).ready(function(){
         $(".sidebar-nav li a").eq(2).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
         $("b").text("Education");
+
     });
+
+    function api(val){
+        console.log(val);
+         if($(".edu_category").eq(val).val() == "uni") {
+             $.ajax({
+                 type: "GET",
+                 url: "http://www.career.go.kr/cnet/openapi/getOpenApi?apiKey=17b79a8290d02ee30e29aa50a8f4e4aa&svcType=api&svcCode=SCHOOL&contentType=json&gubun=univ_list&searchSchulNm=%ED%95%9C%EC%96%91",
+                 success: function (data) {
+                     console.log(data);
+                     console.log(data.dataSearch.content.length);
+                     $(".append").eq(val).remove();
+                     $(".name").eq(val).after("<div class='append'></div>");
+
+                     for (var i = 0; i < data.dataSearch.content.length; i++) {
+                         $(".append").eq(val).append("<span>"+data.dataSearch.content[i].schoolName+"("+data.dataSearch.content[i].campusName+")</span><br>");
+                         console.log(data.dataSearch.content[i].schoolName);
+                     }
+                 }
+             });
+         }else{
+             $(".append").eq(val).remove();
+         }
+    }
     </script>
 
     <style>
@@ -15,6 +39,14 @@
             border-bottom-style: solid;
             border-top-style: none;
             width:130px;
+        }
+        .append{
+            height: 100px;
+            width: 170px;
+            z-index: 1;
+            border: solid 0.3px gray;
+            text-align: center;
+            margin: 0 auto;
         }
     </style>
 
@@ -35,7 +67,7 @@
 
     <div class="row edu_list">
         <div class="col">학교명</div>
-        <div class="col"><input type="text" name="name" class="name" value="{{ data.name |default_if_none:'' }}"></div>
+        <div class="col"><input type="text" name="name" class="name" value="{{ data.name |default_if_none:'' }}" onclick="api( '{{ forloop.counter0 }} ' );"></div>
     </div>
     <br>
 
