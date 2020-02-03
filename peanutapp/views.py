@@ -591,7 +591,9 @@ class EducationUpdateView(View):
 
         #print(type(idx))
         #print(type(high_category))
-        for i in range(len(request.POST.getlist('idx')) - 1):
+
+        print(len(request.POST.getlist('idx')))
+        for i in range(len(request.POST.getlist('idx'))):
             #print(edu_category[i])
             dict = {
                 'edu_category': edu_category[i] or None,
