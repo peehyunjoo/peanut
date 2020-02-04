@@ -4,7 +4,48 @@
     $(document).ready(function(){
         $(".sidebar-nav li a").eq(2).css({"color":"black","background":"white","border-radius":"10px","margin-left":"10px","margin-right":"10px"});
         $("b").text("Education");
+
+        $('body').click(function(e) {
+            if(!$(e.target).hasClass("row")) {
+                $(".append").css("display","none");
+            }
+        });
     });
+
+    $(document).on('click','span',function(){
+		var text = $(this).text();
+		$(this).parent().prev().val(text);
+	});
+
+    function api(val){
+         if($(".edu_category").eq(val).val() == "uni") {
+             $.ajax({
+                 type: "GET",
+                 url: "http://www.career.go.kr/cnet/openapi/getOpenApi?apiKey=17b79a8290d02ee30e29aa50a8f4e4aa&svcType=api&svcCode=SCHOOL&contentType=json&gubun=univ_list&searchSchulNm="+ $('.name').eq(val).val(),
+                 success: function (data) {
+                     console.log(data);
+                     console.log(data.dataSearch.content.length);
+
+                     $("span").remove();
+                     $(".append").css("display","none");
+                     $(".append").eq(val).css("display","block");
+
+                     for (var i = 0; i < data.dataSearch.content.length; i++) {
+                         $(".append").eq(val).append("<span>"+data.dataSearch.content[i].schoolName+"("+data.dataSearch.content[i].campusName+")<br></span>");
+                         console.log(data.dataSearch.content[i].schoolName);
+                     }
+
+                 }
+             });
+         }
+    }
+
+    function check(){
+        if($(".name").val() == ""){
+            alert("학교를 선택해주세요.");
+            return false;
+        }
+    }
     </script>
     <style>
         input, select{
@@ -15,8 +56,18 @@
             border-top-style: none;
             width:130px;
         }
+        .append{
+            display:none;
+            height: auto;
+            width: 170px;
+            z-index: 1;
+            border: solid 0.3px gray;
+            text-align: center;
+            margin: 0 auto;
+            background: white;
+        }
     </style>
-    <form style="width:100%;" method="POST">
+    <form style="width:100%;" method="POST" onsubmit="return check();">
     <input type="hidden" name="id" value="{{ request.session.id }}"/>
     {% csrf_token %}
 
@@ -29,7 +80,8 @@
           </select>
         </div>
         <div class="col">
-            <input type="text" name="name" placeholder="학교명" class="name">
+            <input type="text" name="name" placeholder="학교명" class="name" onclick="api( '0' );">
+            <div class="append"></div>
         </div>
         <div class="col">
             <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
@@ -39,7 +91,7 @@
         </div>
         <div class="col">
            <select name="graduated_yn" class="graduated_yn">
-            <option value="">졸업여부</option>
+            <option value="D">졸업여부</option>
             <option value="Y">졸업</option>
             <option value="N">재학중</option>
           </select>
@@ -86,7 +138,8 @@
           </select>
         </div>
         <div class="col">
-            <input type="text" name="name" placeholder="학교명" class="name">
+            <input type="text" name="name" placeholder="학교명" class="name" onclick="api( '1' );">
+            <div class="append"></div>
         </div>
         <div class="col">
             <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
@@ -96,7 +149,7 @@
         </div>
         <div class="col">
            <select name="graduated_yn" class="graduated_yn">
-            <option value="">졸업여부</option>
+            <option value="D">졸업여부</option>
             <option value="Y">졸업</option>
             <option value="N">재학중</option>
           </select>
@@ -144,7 +197,8 @@
           </select>
         </div>
         <div class="col">
-            <input type="text" name="name" placeholder="학교명" class="name">
+            <input type="text" name="name" placeholder="학교명" class="name" onclick="api( '2' );">
+            <div class="append"></div>
         </div>
         <div class="col">
             <input type="text" name="sdate" class="sdate" placeholder="입학일" onfocus="(this.type='date')" onblur="(this.type='text')" >
@@ -154,7 +208,7 @@
         </div>
         <div class="col">
            <select name="graduated_yn" class="graduated_yn">
-            <option value="">졸업여부</option>
+            <option value="D">졸업여부</option>
             <option value="Y">졸업</option>
             <option value="N">재학중</option>
           </select>

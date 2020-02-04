@@ -7,17 +7,17 @@
         /*$("body, html").click(function(){
             $(".append").css("display","none");
         });*/
+        $('body').click(function(e) {
+            if(!$(e.target).hasClass("row")) {
+                $(".append").css("display","none");
+            }
+        });
     });
     $(document).on('click','span',function(){
 		var text = $(this).text();
 		$(this).parent().prev().val(text);
 	});
 
-    $('body').click(function(e) {
-        if(!$(e.target).hasClass("edu_list")) {
-            $(".append").css("display","none");
-        }
-    });
 
     function api(val){
          if($(".edu_category").eq(val).val() == "uni") {
